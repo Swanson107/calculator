@@ -1,6 +1,6 @@
 html,
 body {
-    background-color: rgb(5, 15, 19);
+    background-color: #050F13;
     display: flex;
     justify-content : center;
     font-size: 10px;
@@ -8,20 +8,20 @@ body {
 
 #container-parent {
     margin-top: 7rem;
-    background-color : rgb(16, 36, 43);
+    background-color : #10242B;
     width: 44rem;
     padding: 3rem;;
     border-radius : 5%;
 }
 
 #calculator {
-    background-color:rgb(15, 30, 37);
+    background-color:#0F1E25;
     padding : 26px;
     border-radius: 5%;
 }
 
 #display-screen {
-    background-color: rgb(37, 65, 37);
+    background-color: #1e521e;
     color : rgb(209, 208, 208);
     display:flex;
     justify-content: end;
@@ -39,7 +39,7 @@ body {
     width: 9.5rem;
     height: 8.5rem;
     font-size: 20px;
-    background-color :rgb(5, 15, 19);
+    background-color : #232f53;
     color: rgb(209, 208, 208);
     border: none;
     border-radius:10%;
@@ -56,7 +56,6 @@ body {
     height: 6rem;
     width : 19rem;
     font-size: 20px;
-    background-color:rgb(5, 15, 19);
     color : rgb(209, 208, 208);
     border: none;
     border-radius: 10%;
@@ -70,4 +69,17 @@ body {
     gap: 1%;
 }
 
+#clear {
+    background-color : #804646;
+}
 
+#delete {
+    background-color: #5F6E9E;
+}
+
+#add,
+#subtract,
+#multiply,
+#divide {
+    background-color: #7A4685;
+}

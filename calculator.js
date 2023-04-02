@@ -172,7 +172,6 @@ function equals() {
             firstNumIn = false;
         } else if (dividing === true) {
             result = parseFloat(divide(firstNum, secondNum)).toFixed(2);
-            console.log(result);
             display.textContent = result;
             dividing = false;
             firstNumIn = false;
