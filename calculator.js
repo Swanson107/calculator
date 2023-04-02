@@ -1,20 +1,4 @@
-function add(n1, n2) {
-    return n1 + n2;
-}
-function subtract(n1, n2) {
-    return n1 - n2
-}
-function multiply(n1, n2) {
-    return n1 * n2;
-}
-function divide(n1, n2) {
-    if (n2 === 0){
-        display.textContent = 'Nice Try';
-        return 0;
-    } else {
-        return n1 / n2;
-    }
-}
+
 
 // clear
 function clearDisplay() {
@@ -85,4 +69,61 @@ for (const node of numKeypad) {
 // set nums for operation
 
 let firstNum = 0;
+let firstNumIn = false;
 let secondNum = 0;
+let result = 0;
+
+let adding = false;
+
+// events for operations
+
+const plus = document.getElementById('add');
+plus.addEventListener('click', readyAdd);
+
+const doMath = document.getElementById('equals');
+doMath.addEventListener('click', equals);
+
+
+// operations
+function add(n1, n2) {
+    return n1 + n2;
+}
+function subtract(n1, n2) {
+    return n1 - n2
+}
+function multiply(n1, n2) {
+    return n1 * n2;
+}
+function divide(n1, n2) {
+    if (n2 === 0){
+        display.textContent = 'Nice Try';
+        return 0;
+    } else {
+        return n1 / n2;
+    }
+}
+
+function equals() {
+    if (firstNumIn === true) {
+        secondNum = parseFloat(display.textContent);
+        if (adding === true) {
+            alert("adding")
+            result = add(firstNum, secondNum);
+            display.textContent = result;
+            adding = false;
+            furstNumIn = false;
+        }
+    }
+}
+
+
+function readyAdd() {
+    if (firstNumIn === false){
+        firstNum = parseFloat(display.textContent);
+        firstNumIn = true;
+        adding = true;
+        display.textContent = 0;
+    }
+}
+
+
