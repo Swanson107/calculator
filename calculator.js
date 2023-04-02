@@ -75,6 +75,7 @@ let result = 0;
 
 let adding = false;
 let subtracting = false;
+let multiplying = false;
 
 // events for operations
 
@@ -83,6 +84,12 @@ plus.addEventListener('click', readyAdd);
 
 const minus = document.getElementById('subtract');
 minus.addEventListener('click', readySub);
+
+const times = document.getElementById('multiply');
+times.addEventListener('click', readyTimes);
+
+const division = document.getElementById('divide');
+division.addEventListener('click', readyDivide);
 
 const doMath = document.getElementById('equals');
 doMath.addEventListener('click', equals);
@@ -99,12 +106,12 @@ function multiply(n1, n2) {
     return n1 * n2;
 }
 function divide(n1, n2) {
-    if (n2 === 0){
-        display.textContent = 'Nice Try';
-        return 0;
-    } else {
+    //if (n2 === 0){
+        //display.textContent = 'Nice Try';
+        //return 0;
+    //} else {
         return n1 / n2;
-    }
+    //}
 }
 
 function readyAdd() {
@@ -125,22 +132,55 @@ function readySub() {
     }
 }
 
+function readyTimes() {
+    if (firstNumIn === false) {
+        firstNum = parseFloat(display.textContent);
+        firstNumIn = true;
+        multiplying = true;
+        display.textContent = 0;
+    }
+}
+
+
+function readyDivide() {
+    if (firstNumIn === false) {
+        firstNum = parseFloat(display.textContent);
+        firstNumIn = true;
+        dividing = true;
+        display.textContent = 0;
+    }
+}
+
 
 function equals() {
     if (firstNumIn === true) {
         secondNum = parseFloat(display.textContent);
         if (adding === true) {
-            result = add(firstNum, secondNum);
+            result = parseFloat(add(firstNum, secondNum)).toFixed(2);
             display.textContent = result;
             adding = false;
             firstNumIn = false;
         } else if (subtracting === true) {
-            result = subtract(firstNum, secondNum);
+            result = parseFloat(subtract(firstNum, secondNum)).toFixed(2);
             display.textContent = result;
             subtracting = false;
             firstNumIn = false;
+        } else if (multiplying === true) {
+            result = parseFloat(multiply(firstNum, secondNum)).toFixed(2);
+            display.textContent = result;
+            multiplying = false;
+            firstNumIn = false;
+        } else if (dividing === true) {
+            result = parseFloat(divide(firstNum, secondNum)).toFixed(2);
+            display.textContent = result;
+            dividing = false;
+            firstNumIn = false;
         }
+        if (display.textContent.length > 18){ // shrink result if too long
+            display.style.fontSize = '3rem';
+            display.style.marginTop = '6rem';
+        }
+
     }
 }
-
 
