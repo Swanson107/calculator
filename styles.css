@@ -25,7 +25,8 @@ body {
     color : rgb(209, 208, 208);
     display:flex;
     justify-content: end;
-    height: 11rem;
+    height: 10rem;
+    border-radius: 2%;
 }
 
 #display {
