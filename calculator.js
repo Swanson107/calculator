@@ -44,12 +44,14 @@ function deleteNum() {
 // number hit
 function numKeyHit() {
     const num = this.textContent;
-    console.log('key: ' + num);
-    if (display.textContent == 0){
+    if (display.textContent.length > 14) {
+        display.textContent = display.textContent;
+    } else if (display.textContent == 0){
         display.textContent = num;
     } else {
         display.textContent += parseFloat(num);
     }
+
 }
 
 
@@ -62,9 +64,6 @@ function decimal() {
     }
 }
 
-
-
-
 const dot = document.getElementById('dot');
 dot.addEventListener('click', decimal);
 const display = document.getElementById("display");
@@ -75,3 +74,8 @@ const numKeypad = document.querySelectorAll('.num');
 for (const node of numKeypad) { 
     node.addEventListener('click', numKeyHit);
 }
+
+// set nums for operation
+
+let firstNum = 0;
+let secondNum = 0;
