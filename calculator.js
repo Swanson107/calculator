@@ -106,12 +106,8 @@ function multiply(n1, n2) {
     return n1 * n2;
 }
 function divide(n1, n2) {
-    //if (n2 === 0){
-        //display.textContent = 'Nice Try';
-        //return 0;
-    //} else {
-        return n1 / n2;
-    //}
+    return n1 / n2;
+
 }
 
 function readyAdd() {
@@ -155,7 +151,9 @@ function readyDivide() {
 function equals() {
     if (firstNumIn === true) {
         secondNum = parseFloat(display.textContent);
-        if (adding === true) {
+        if (secondNum === 0 && dividing === true){
+            display.textContent = 'Nice Try. You can\'t divide by 0';
+        } else if (adding === true) {
             result = parseFloat(add(firstNum, secondNum)).toFixed(2);
             display.textContent = result;
             adding = false;
@@ -172,6 +170,7 @@ function equals() {
             firstNumIn = false;
         } else if (dividing === true) {
             result = parseFloat(divide(firstNum, secondNum)).toFixed(2);
+            console.log(result);
             display.textContent = result;
             dividing = false;
             firstNumIn = false;
