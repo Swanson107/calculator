@@ -15,7 +15,7 @@ function deleteNum() {
     str = String(display.textContent);
     str = str.slice(0, str.length - 1);
     display.textContent = parseFloat(str);
-    if (str === '') {
+    if (str === '' || str === '-') {
         console.log('Display Empty');
         display.textContent = 0;
         return;
@@ -74,11 +74,15 @@ let secondNum = 0;
 let result = 0;
 
 let adding = false;
+let subtracting = false;
 
 // events for operations
 
 const plus = document.getElementById('add');
 plus.addEventListener('click', readyAdd);
+
+const minus = document.getElementById('subtract');
+minus.addEventListener('click', readySub);
 
 const doMath = document.getElementById('equals');
 doMath.addEventListener('click', equals);
@@ -103,26 +107,39 @@ function divide(n1, n2) {
     }
 }
 
-function equals() {
-    if (firstNumIn === true) {
-        secondNum = parseFloat(display.textContent);
-        if (adding === true) {
-            alert("adding")
-            result = add(firstNum, secondNum);
-            display.textContent = result;
-            adding = false;
-            furstNumIn = false;
-        }
-    }
-}
-
-
 function readyAdd() {
     if (firstNumIn === false){
         firstNum = parseFloat(display.textContent);
         firstNumIn = true;
         adding = true;
         display.textContent = 0;
+    }
+}
+
+function readySub() {
+    if (firstNumIn === false) {
+        firstNum = parseFloat(display.textContent);
+        firstNumIn = true;
+        subtracting = true;
+        display.textContent = 0;
+    }
+}
+
+
+function equals() {
+    if (firstNumIn === true) {
+        secondNum = parseFloat(display.textContent);
+        if (adding === true) {
+            result = add(firstNum, secondNum);
+            display.textContent = result;
+            adding = false;
+            firstNumIn = false;
+        } else if (subtracting === true) {
+            result = subtract(firstNum, secondNum);
+            display.textContent = result;
+            subtracting = false;
+            firstNumIn = false;
+        }
     }
 }
 
