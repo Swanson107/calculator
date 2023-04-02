@@ -17,17 +17,16 @@ function divide(n1, n2) {
 }
 
 // clear
+function clearDisplay() {
+    display.textContent = 0;
+    display.style.fontSize = '4.5rem';
+    display.style.marginTop = '4rem';
+}
 const clearKey = document.getElementById('clear');
 clearKey.addEventListener('click', clearDisplay);
 
-function clearDisplay() {
-    display.textContent = 0;
-}
 
 // delete
-const deleteKey = document.getElementById('delete');
-deleteKey.addEventListener('click', deleteNum);
-
 function deleteNum() {
     str = String(display.textContent);
     str = str.slice(0, str.length - 1);
@@ -40,13 +39,22 @@ function deleteNum() {
     console.log(str);
 
 }
+const deleteKey = document.getElementById('delete');
+deleteKey.addEventListener('click', deleteNum);
 
 // number hit
 function numKeyHit() {
     const num = this.textContent;
-    if (display.textContent.length > 14) {
+    if (display.textContent.length > 22) {
         display.textContent = display.textContent;
+    } else if (display.textContent.length > 14) {
+        display.style.fontSize = '3rem';
+        display.style.marginTop = '6rem';
+        display.textContent += parseFloat(num);
+
     } else if (display.textContent == 0){
+        display.style.fontSize = '4.5rem';
+        display.style.marginTop = '4rem';
         display.textContent = num;
     } else {
         display.textContent += parseFloat(num);
@@ -54,12 +62,11 @@ function numKeyHit() {
 
 }
 
-
 // decimal
 function decimal() {
     if (display.textContent != 0 && display.textContent.includes('.') == false)  {
-        numBack = parseInt(display.textContent);
-        display.textContent = display.textContent + '.0';
+        numBack = parseFloat(display.textContent);
+        display.textContent = display.textContent + '.';
         return numBack;
     }
 }
