@@ -1,0 +1,71 @@
+html,
+body {
+    background-color: rgb(5, 15, 19);
+    display: flex;
+    justify-content : center;
+}
+
+
+
+#container-parent {
+    margin-top: 10em;
+    background-color : rgb(16, 36, 43);
+    width: 44em;
+    padding: 56px;
+    border-radius : 5%;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(15, 30, 37);
+    padding : 26px;
+    border-radius: 5%;
+}
+
+#display-screen {
+    background-color: rgb(37, 65, 37);
+    color : white;
+    display:flex;
+    justify-content: end;
+}
+
+#display {
+    font-size: 46px;
+    margin-right : 1em;
+}
+
+.button {
+    width: 8em;
+    height: 8em;
+    font-size: 20px;
+    background-color :rgb(5, 15, 19);
+    color: white;
+    border: none;
+    border-radius:15%;
+    margin-bottom: 5px;
+}
+
+#clear-delete {
+    padding-top : 1em;
+    padding-bottom: 1em;
+    display:flex;
+    justify-content: center;
+}
+
+#clear, #delete {
+    height: 4em;
+    width : 16em;
+    font-size: 20px;
+    background-color:rgb(5, 15, 19);
+    color : white;
+    border: none;
+}
+#clear {margin-right: 0.5em;}
+
+#keypad {
+    background-color: rgb(16, 36, 43);
+    border-radius : 10%;
+}
+
+
