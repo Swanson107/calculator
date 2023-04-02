@@ -3,21 +3,18 @@ body {
     background-color: rgb(5, 15, 19);
     display: flex;
     justify-content : center;
+    font-size: 10px;
 }
 
-
-
 #container-parent {
-    margin-top: 10em;
+    margin-top: 7rem;
     background-color : rgb(16, 36, 43);
-    width: 44em;
-    padding: 56px;
+    width: 44rem;
+    padding: 3rem;;
     border-radius : 5%;
 }
 
 #calculator {
-    display: flex;
-    flex-direction: column;
     background-color:rgb(15, 30, 37);
     padding : 26px;
     border-radius: 5%;
@@ -25,47 +22,50 @@ body {
 
 #display-screen {
     background-color: rgb(37, 65, 37);
-    color : white;
+    color : rgb(209, 208, 208);
     display:flex;
     justify-content: end;
+    height: 11rem;
 }
 
 #display {
-    font-size: 46px;
-    margin-right : 1em;
+    font-size: 48px;
+    margin-right : 1rem;
 }
 
 .button {
-    width: 8em;
-    height: 8em;
+    width: 9.5rem;
+    height: 8.5rem;
     font-size: 20px;
     background-color :rgb(5, 15, 19);
-    color: white;
+    color: rgb(209, 208, 208);
     border: none;
-    border-radius:15%;
-    margin-bottom: 5px;
+    border-radius:10%;
 }
 
 #clear-delete {
-    padding-top : 1em;
-    padding-bottom: 1em;
+    padding-top : 1rem;
+    padding-bottom: 1rem;
     display:flex;
     justify-content: center;
 }
 
 #clear, #delete {
-    height: 4em;
-    width : 16em;
+    height: 6rem;
+    width : 19rem;
     font-size: 20px;
     background-color:rgb(5, 15, 19);
-    color : white;
+    color : rgb(209, 208, 208);
     border: none;
+    border-radius: 10%;
 }
 #clear {margin-right: 0.5em;}
 
 #keypad {
-    background-color: rgb(16, 36, 43);
-    border-radius : 10%;
+    display: flex;
+    justify-content: center;
+    display: grid;
+    gap: 1%;
 }
 
 
