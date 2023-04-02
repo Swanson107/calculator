@@ -5,6 +5,8 @@ function clearDisplay() {
     display.textContent = 0;
     display.style.fontSize = '4.5rem';
     display.style.marginTop = '4rem';
+    firstNumIn = false;
+    firstNum = 0;
 }
 const clearKey = document.getElementById('clear');
 clearKey.addEventListener('click', clearDisplay);
@@ -31,7 +33,7 @@ function numKeyHit() {
     const num = this.textContent;
     if (display.textContent.length > 22) {
         display.textContent = display.textContent;
-    } else if (display.textContent.length > 14) {
+    } else if (display.textContent.length > 13) {
         display.style.fontSize = '3rem';
         display.style.marginTop = '6rem';
         display.textContent += parseFloat(num);
@@ -111,7 +113,7 @@ function divide(n1, n2) {
 }
 
 function readyAdd() {
-    if (firstNumIn === false){
+    if (firstNumIn === false && display.textContent != 0){
         firstNum = parseFloat(display.textContent);
         firstNumIn = true;
         adding = true;
@@ -120,7 +122,7 @@ function readyAdd() {
 }
 
 function readySub() {
-    if (firstNumIn === false) {
+    if (firstNumIn === false && display.textContent != 0) {
         firstNum = parseFloat(display.textContent);
         firstNumIn = true;
         subtracting = true;
@@ -129,7 +131,7 @@ function readySub() {
 }
 
 function readyTimes() {
-    if (firstNumIn === false) {
+    if (firstNumIn === false && display.textContent != 0) {
         firstNum = parseFloat(display.textContent);
         firstNumIn = true;
         multiplying = true;
@@ -139,7 +141,7 @@ function readyTimes() {
 
 
 function readyDivide() {
-    if (firstNumIn === false) {
+    if (firstNumIn === false && display.textContent != 0) {
         firstNum = parseFloat(display.textContent);
         firstNumIn = true;
         dividing = true;
@@ -152,7 +154,7 @@ function equals() {
     if (firstNumIn === true) {
         secondNum = parseFloat(display.textContent);
         if (secondNum === 0 && dividing === true){
-            display.textContent = 'Nice Try. You can\'t divide by 0';
+            display.textContent = 'Nice try. You can\'t divide by 0';
         } else if (adding === true) {
             result = parseFloat(add(firstNum, secondNum)).toFixed(2);
             display.textContent = result;
