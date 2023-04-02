@@ -15,17 +15,22 @@ function divide(n1, n2) {
     }
 }
 
-function buttonGo() {
-    const num = this.textContent;
-    console.log(num);
+function keyHit() {
 
+    const num = this.textContent;
+    console.log('key: ' + num);
+    if (display.textContent == 0){
+        display.textContent = num;
+    } else {
+        display.textContent += parseInt(num);
+    }
 }
 
 const display = document.getElementById("display");
 display.textContent = 0;
 
 
-const keypad = document.querySelectorAll('.button');
-for (const node of keypad) {
-    node.addEventListener('click', buttonGo);
+const numKeypad = document.querySelectorAll('.num');
+for (const node of numKeypad) {
+    node.addEventListener('click', keyHit);
 }
