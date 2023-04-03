@@ -50,7 +50,7 @@ function numKeyHit() {
 
 // decimal
 function decimal() {
-    if (display.textContent != 0 && display.textContent.includes('.') == false)  {
+    if (display.textContent != 0 && display.textContent.includes('.') == false) {
         numBack = parseFloat(display.textContent);
         display.textContent = display.textContent + '.';
         return numBack;
@@ -78,6 +78,7 @@ let result = 0;
 let adding = false;
 let subtracting = false;
 let multiplying = false;
+let dividing = false;
 
 // events for operations
 
@@ -183,4 +184,79 @@ function equals() {
 
     }
 }
+
+// color modes
+
+
+function lightMode() {
+    console.log('lightMode attempt')
+        if (dark === true) {
+            document.getElementById('dark-body').id = 'light-body';
+            document.getElementById('dark').id = 'dark-light';
+            document.getElementById('light').id = 'light-light';
+            document.getElementById('container-parent').id = 'container-parent-light';
+            document.getElementById('calculator').id = 'calculator-light';
+            document.getElementById('display-screen').id = 'display-screen-light';
+
+            buttons = document.getElementsByClassName('button num');
+            buttons = Array.from(buttons);
+            for (i = 0; i < buttons.length; i++){
+                buttons[i].className = 'button-light num'
+            }
+            document.getElementById('dot').className = 'button-light';
+            document.getElementById('equals').className = 'button-light';
+            document.getElementById('clear').id = 'clear-light';
+            document.getElementById('delete').id = 'delete-light'
+
+            operations = document.getElementsByClassName('button operation');
+            operations = Array.from(operations);
+            for (i = 0; i < operations.length; i++){
+                operations[i].className = 'button operation-light';
+            }
+            light = true;
+            dark = false;
+            console.log('Light mode on');
+    }
+}
+
+function darkMode() {
+    console.log('darkMode attempt');
+    if (light === true) {
+        document.getElementById('light-body').id = 'dark-body';
+        document.getElementById('dark-light').id = 'dark';
+        document.getElementById('light-light').id = 'light';
+        document.getElementById('container-parent-light').id = 'container-parent';
+        document.getElementById('calculator-light').id = 'calculator';
+        document.getElementById('display-screen-light').id = 'display-screen';
+
+        buttons = document.getElementsByClassName('button-light num');
+        buttons = Array.from(buttons);
+        for (i = 0; i < buttons.length; i++){
+            buttons[i].className = 'button num'
+        }
+        document.getElementById('dot').className = 'button';
+        document.getElementById('equals').className = 'button';
+        document.getElementById('clear-light').id = 'clear';
+        document.getElementById('delete-light').id = 'delete'
+
+        operations = document.getElementsByClassName('button-light operation');
+        operations = Array.from(operations);
+        for (i = 0; i < operations.length; i++){
+            operations[i].className = 'button operation';
+        }
+        dark = true;
+        light = false;
+        console.log('Dark mode on');
+    }
+
+}
+
+const darkSelect = document.getElementById('dark');
+const lightSelect = document.getElementById('light');
+
+darkSelect.addEventListener('click', darkMode);
+lightSelect.addEventListener('click', lightMode);
+
+let dark = true;
+let light = false;
 
